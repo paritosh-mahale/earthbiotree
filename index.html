@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EarthBioTree</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: #333;
+      background: #f7fdf7;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #a8ffb0;
+    }
+
+    /* Hero Section with Parallax */
+    .hero {
+      height: 100vh;
+      background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") center/cover fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      background: linear-gradient(45deg, #4CAF50, #2e7d32);
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* About */
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Products */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .feature {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+    }
+
+    /* Parallax Section */
+    .parallax {
+      background: url("https://images.unsplash.com/photo-1464226184884-fa280b87c399") center/cover fixed;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Contact */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      background: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>AgroShield</h2>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Protect Your Crops, Boost Your Yield</h1>
+    <button class="btn">Explore Products</button>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2 data-aos="fade-up">About Us</h2>
+  <p class="about" data-aos="fade-up">
+    AgroShield provides advanced pesticide solutions to protect crops from pests and diseases.
+    Our mission is to empower farmers with safe, effective, and sustainable products.
+  </p>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <h2 data-aos="fade-up">Our Products</h2>
+  <div class="products">
+
+    <div class="card" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c">
+      <div class="card-body">
+        <h3>CropGuard Pro</h3>
+        <p>Advanced pest control formula.</p>
+        <small>✔ Fast action ✔ Long protection</small>
+      </div>
+    </div>
+
+    <div class="card" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b">
+      <div class="card-body">
+        <h3>EcoShield</h3>
+        <p>Eco-friendly pesticide.</p>
+        <small>✔ Safe ✔ Organic</small>
+      </div>
+    </div>
+
+    <div class="card" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+      <div class="card-body">
+        <h3>RootSafe</h3>
+        <p>Protects plant roots.</p>
+        <small>✔ Strong roots ✔ Healthy growth</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Features -->
+<section>
+  <h2 data-aos="fade-up">Why Choose Us</h2>
+  <div class="features">
+    <div class="feature" data-aos="fade-up">🌱 Eco Friendly</div>
+    <div class="feature" data-aos="fade-up">⚡ Fast Acting</div>
+    <div class="feature" data-aos="fade-up">🛡 Long Protection</div>
+  </div>
+</section>
+
+<!-- Parallax -->
+<section class="parallax">
+  <h2 data-aos="fade-up">Growing Better Tomorrow</h2>
+</section>
+
+<!-- Testimonials -->
+<section>
+  <h2 data-aos="fade-up">Testimonials</h2>
+  <div class="testimonials">
+
+    <div class="testimonial" data-aos="fade-up">
+      "My crop yield increased by 40%!" – Farmer Raj
+    </div>
+
+    <div class="testimonial" data-aos="fade-up">
+      "Best pesticide I’ve used so far." – Agro Dealer
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 data-aos="fade-up">Contact Us</h2>
+  <div class="contact">
+    <form data-aos="fade-up">
+      <input type="text" placeholder="Your Name"/>
+      <input type="email" placeholder="Email"/>
+      <textarea placeholder="Message"></textarea>
+      <button class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 EarthBioTree | info@EarthBioTree.com</p>
+</footer>
+
+<!-- AOS Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+  // Initialize animation
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+
+  // Optional: Smooth scroll enhancement
+  document.querySelectorAll("nav a").forEach(anchor => {
+    anchor.addEventListener("click", function(e){
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href"))
+        .scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
+
+</body>
+</html>
